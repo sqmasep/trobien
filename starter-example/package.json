@@ -6,7 +6,9 @@
   "browserslist": "last 20 versions, ie > 9, ff > 3.4, IOS > 3",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch  --progress --mode=development",
+    "watch": "webpack --watch  --progress --mode=development",
+    "start": "webpack",
+    "dev": "webpack-dev-server",
     "build": "webpack --mode production"
   },
   "author": "",

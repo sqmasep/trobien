@@ -1,67 +1,36 @@
 const path = require("path");
-const srcDir = path.resolve(__dirname, "assets/src/");
-const distDir = path.resolve(__dirname, "assets/dist/");
 
 module.exports = {
-  entry: [`${srcDir}/js/script.js`, `${srcDir}/stylus/global.styl`],
+  mode: "development",
+  entry: ["./src/ts/index.ts", "./src/stylus/global.styl"],
   output: {
-    filename: "[name].bundle.js",
-    path: distDir,
-    clean: true,
+    path: path.resolve(__dirname, "public"),
+    filename: "bundle.js",
   },
 
+  target: "web",
+  devServer: {
+    port: "3000",
+    static: ["./public"],
+    open: true,
+    historyApiFallback: true,
+    hot: true,
+    liveReload: true,
+  },
   resolve: {
-    extensions: [
-      ".js",
-      ".styl",
-      ".ts",
-      ".json",
-      ".jpg",
-      ".jpeg",
-      ".svg",
-      ".png",
-    ],
+    extensions: [".js", ".json", ".ts", ".styl"],
   },
   module: {
     rules: [
       {
         test: /\.(js|ts)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env"],
-            },
-          },
-        ],
+        use: "babel-loader",
       },
       {
         test: /\.styl$/,
-        exclude: /node_modules/,
-        generator: {
-          filename: "[name].css",
-        },
-        use: [
-          "style-loader",
-          "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require("autoprefixer")(/*{ grid: 'autoplace' }*/),
-                  require("postcss-flexbugs-fixes"),
-                ],
-              },
-            },
-          },
-          {
-            loader: "stylus-loader",
-          },
-        ],
+        use: ["style-loader", "css-loader", "stylus-loader"],
       },
     ],
   },
-  plugins: [new (require("webpack-remove-empty-scripts"))()],
 };
