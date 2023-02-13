@@ -1,0 +1,41 @@
+{
+  "name": "surf-correction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "browserslist": "last 20 versions, ie > 9, ff > 3.4, IOS > 3",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch  --progress --mode=development",
+    "start": "webpack-dev-server .",
+    "build": "webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "arbalet": "^1.0.4",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "postcss": "^8.4.21",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^7.0.2",
+    "postcss-pxtorem": "^6.0.0",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "stylus": "^0.59.0",
+    "stylus-loader": "^7.1.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-remove-empty-scripts": "^1.0.1"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "@glidejs/glide": "^3.6.0",
+    "gsap": "^3.11.4",
+    "vanilla-tilt": "^1.8.0",
+    "webpack": "^5.75.0"
+  }
+}

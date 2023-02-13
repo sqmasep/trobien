@@ -1,0 +1,78 @@
+@import "./partial/*"
+
+.container
+    margin-inline 2rem
+
+.nav
+    &__container
+        display flex
+        align-items center
+        justify-content center
+        padding-block 3rem
+
+.logo
+    width 15rem
+
+.hero
+    display grid
+    align-content center
+    padding 5em
+    min-height 700px
+    background-image url(/starter-example/assets/images/hero.jpg)
+    background-position right
+    background-size 100%
+    background-repeat no-repeat
+
+    &__title
+        text-transform uppercase
+        font-size clamp(1.5rem, 60vw, 4rem)
+        max-width 11ch
+
+.presentation
+    display grid
+    gap 4rem
+    &__section
+        display grid
+        // gap 5rem
+        grid-template-columns repeat(auto-fit, minmax(180px, 1fr))
+        grid-template-areas "text img"
+        
+        &:nth-child(even)
+            grid-template-areas "img text"
+            .presentation__box
+                text-align right
+                justify-items end
+
+    &__box
+        display grid
+        place-content start
+        // gap 2rem
+        &:nth-child(1)
+            grid-area text
+
+        &:nth-child(2)
+            grid-area img
+    // &__btn
+    // &__img
+
+
+.projects
+    display grid
+    grid-template-columns repeat(auto-fit, minmax(clamp(100px, 60vw, 350px), 1fr))
+    gap 1rem
+    &__item
+        position relative
+        overflow clip
+        
+        min-height 20rem
+    &__img
+        position absolute
+        inset 0
+        background-size cover
+    &__goal
+        text-transform uppercase
+        font-weight light
+        color white
+    &__expl
+        text-transform uppercase
+        color white
