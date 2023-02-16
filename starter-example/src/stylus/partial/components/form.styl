@@ -1,0 +1,28 @@
+@import "../palette/main";
+
+.form
+    &__section
+        &--required .form__label
+            &::after
+                content "*"
+                color inherit
+    &__label
+        display block
+        color primary
+        text-transform uppercase
+        letter-spacing .1ch
+    &__input
+        display block
+        border none
+        width 100%
+        padding-block .5em
+        padding-inline @padding-block
+        font-size inherit
+        border-bottom 1px solid primary
+        &:focus, &:focus-visible
+            outline-color primary
+        &:where(textarea)
+            resize none
+            font-family inherit
+            min-height 20ch
+    

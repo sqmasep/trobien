@@ -31,6 +31,13 @@
 .presentation
     display grid
     gap 4rem
+    .quote
+        &::before
+            content open-quote
+            display inline
+            // color 
+
+
     &__section
         display grid
         // gap 5rem
@@ -57,22 +64,82 @@
 
 
 .projects
-    display grid
-    grid-template-columns repeat(auto-fit, minmax(clamp(100px, 60vw, 350px), 1fr))
-    gap 1rem
+    &__title
+    &__subtitle
+        text-align center
+
+    &__list
+        display grid
+        margin-block-start 2rem
+        grid-template-columns repeat(auto-fit, minmax(clamp(100px, 60vw, 350px), 1fr))
+        gap 1rem
+        max-width 90rem
+        margin-inline auto
+
     &__item
         position relative
         overflow clip
-        
-        min-height 20rem
+        aspect-ratio 1/1.5
+        display flex
+        flex-direction column
+        justify-content space-between
+
     &__img
         position absolute
-        inset 0
+        width 100%
+        height 100%
+        z-index -1
         background-size cover
+
     &__goal
         text-transform uppercase
-        font-weight light
+        font-weight lighter
+        font-size 2.5rem
         color white
+        align-self center
+        margin-block auto
+        letter-spacing .4ch       
+        writing-mode vertical-lr
+        rotate -180deg
+
     &__expl
         text-transform uppercase
         color white
+        max-width 30ch
+        margin 1.5em
+        font-weight lighter
+        letter-spacing .1ch
+
+.convinced
+    position relative
+    border-left 1px solid primary
+    padding-inline 2em
+    min-height 15rem
+    display flex
+    flex-direction column
+    justify-content space-between
+
+
+    &::before
+    &::after
+        content ""
+        position absolute
+        color primary
+        left -.2em
+        border-radius 50%
+        aspect-ratio 1
+        background-color primary
+        width .3em
+
+    &::before
+        top 0
+    &::after
+        bottom 0
+
+    &__title
+        font-weight lighter
+        text-transform uppercase
+        line-height 1.2
+        max-width 15ch
+    &__cta
+        font-size 2rem

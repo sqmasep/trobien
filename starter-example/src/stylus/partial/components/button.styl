@@ -1,3 +1,5 @@
+@import "../palette/main"
+
 .btn
     display block
     width fit-content
@@ -5,3 +7,7 @@
     padding-block .5em
     font-weight 900
     text-decoration none
+    &:focus-visible
+        outline-offset .25em
+        outline-width @outline-offset * 2
+        outline-color primary
