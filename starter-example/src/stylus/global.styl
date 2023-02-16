@@ -29,8 +29,20 @@
         max-width 11ch
 
 .presentation
+    position relative
     display grid
     gap 4rem
+
+    &__line
+        position absolute
+        top 50%
+        right 0
+        height 2px
+        width 100%
+        rotate -210deg
+        clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
+
+
     .quote
         &::before
             content open-quote
@@ -39,6 +51,7 @@
 
 
     &__section
+        // position relative
         display grid
         gap 5rem
         grid-template-columns repeat(auto-fit, minmax(20rem, 1fr))
@@ -58,8 +71,11 @@
             flex 1
 
     &__box
-        display grid
-        place-content start
+        :has(:not(svg))
+            display grid
+            place-content start
+        svg
+            z-index 2
         // gap 2rem
         // &:nth-child(1)
         //     grid-area text
