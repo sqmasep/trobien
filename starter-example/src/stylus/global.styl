@@ -16,9 +16,9 @@
 .hero
     display grid
     align-content center
-    padding 5em
-    min-height 700px
-    // background-image url(./assets/images/hero.jpg)
+    padding clamp(1em, 10vw, 5em)
+    min-height 800px
+    background-image url(../../public/assets/images/hero.jpg)
     background-position right
     background-size 100%
     background-repeat no-repeat
@@ -40,25 +40,32 @@
 
     &__section
         display grid
-        // gap 5rem
-        grid-template-columns repeat(auto-fit, minmax(180px, 1fr))
-        grid-template-areas "text img"
-        
+        gap 5rem
+        grid-template-columns repeat(auto-fit, minmax(20rem, 1fr))
+        // grid-template-areas "text img"
+        // display flex
+        // flex-wrap wrap
         &:nth-child(even)
-            grid-template-areas "img text"
+            // grid-template-areas "img text"
+            // flex-direction row-reverse
             .presentation__box
+
                 text-align right
                 justify-items end
+                &:nth-child(2)
+                    order -1
+        > *
+            flex 1
 
     &__box
         display grid
         place-content start
         // gap 2rem
-        &:nth-child(1)
-            grid-area text
+        // &:nth-child(1)
+        //     grid-area text
 
-        &:nth-child(2)
-            grid-area img
+        // &:nth-child(2)
+        //     grid-area img
     // &__btn
     // &__img
 
@@ -70,6 +77,7 @@
 
     &__list
         display grid
+        align-items center
         margin-block-start 2rem
         grid-template-columns repeat(auto-fit, minmax(clamp(100px, 60vw, 350px), 1fr))
         gap 1rem
@@ -112,6 +120,7 @@
 
 .convinced
     position relative
+    margin-block-start 10rem
     border-left 1px solid primary
     padding-inline 2em
     min-height 15rem
@@ -143,3 +152,14 @@
         max-width 15ch
     &__cta
         font-size 2rem
+
+.contact
+    display grid
+    grid-template-columns repeat(auto-fit, minmax(20rem, 1fr))
+    &__form
+        display grid
+        gap 2rem
+        grid-template-columns repeat(2, 0.5fr)
+
+        .form__section:has(textarea, .form__button)
+            grid-column span 2

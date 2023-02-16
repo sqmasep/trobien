@@ -12,7 +12,7 @@
     <!-- let's do magic ! -->
     <nav class="nav">
       <div class="nav__container container">
-        <img src="/icones/logo.svg" class="logo" />
+        <img src="./assets/icones/logo.svg" class="logo" />
       </div>
     </nav>
 
@@ -39,11 +39,13 @@
             Un besoin de contact ?
           </a>
         </div>
-        <img
-          src="./assets/images/saving.png"
-          alt=""
-          class="presentation__box"
-        />
+        <div class="presentation__box">
+          <img
+            src="./assets/images/saving.png"
+            alt=""
+            class="presentation__img"
+          />
+        </div>
       </div>
       <div class="presentation__section">
         <div class="presentation__box">
@@ -63,11 +65,13 @@
             C'est par ici qu'on signe
           </a>
         </div>
-        <img
-          src="./assets/images/saving.png"
-          alt=""
-          class="presentation__box"
-        />
+        <div class="presentation__box">
+          <img
+            src="./assets/images/saving.png"
+            alt=""
+            class="presentation__img"
+          />
+        </div>
       </div>
     </section>
 
@@ -116,6 +120,7 @@
       <p class="convinced__cta quote clr-primary">Alors remplissez ça :)</p>
     </section>
     <section class="contact container">
+      <div class="contact__infos"></div>
       <div class="contact__form">
         <div class="form__section form__section--required">
           <label for="name" class="form__label">Nom</label>
@@ -142,15 +147,29 @@
           <input class="form__input" type="text" id="city" name="city" />
         </div>
         <div class="form__section form__section--required">
-          <label for="city" class="form__label">Ville</label>
+          <label for="react_aurait_été_plus_pratique" class="form__label"
+            >Votre message
+          </label>
           <textarea
             class="form__input"
             type="text"
-            id="city"
-            name="city"
+            id="react_aurait_été_plus_pratique"
+            name="react_aurait_été_plus_pratique"
           ></textarea>
+        </div>
+        <div class="form__section">
+          <button class="form__button btn bg-primary clr-white">Envoyer</button>
         </div>
       </div>
     </section>
+
+    <footer class="footer bg-primary">
+      <div class="footer__rick">
+        <img src="./assets/icones/logo.svg" alt="" class="footer__logo" />
+        <p class="footer__rolled clr-white">
+          L'agence qui est vraiment (trop) bien
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
