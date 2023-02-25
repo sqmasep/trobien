@@ -10,7 +10,7 @@ module.exports = {
 
   target: "web",
   devServer: {
-    port: "3000",
+    port: "3210",
     static: ["./public"],
     open: true,
     historyApiFallback: true,
