@@ -26,7 +26,7 @@
 
     &__title
         text-transform uppercase
-        font-size clamp(1.5rem, 60vw, 4rem)
+        font-size clamp(1.5rem, 9vw, 4rem)
         max-width 11ch
 
 .follow
@@ -52,8 +52,6 @@
         aspect-ratio 1
         width 1.2rem
         
-        
-
 .presentation
     position relative
     display grid
@@ -68,53 +66,47 @@
         rotate -210deg
         clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
 
-
-    .quote
-        &::before
-            content open-quote
-            display inline
-            // color 
-
+    &__desc
+        font-size 1.75rem
 
     &__section
-        // position relative
         display grid
-        gap 5rem
+        gap clamp(.5rem, 10vw, 5rem)
         grid-template-columns repeat(auto-fit, minmax(20rem, 1fr))
-        // grid-template-areas "text img"
-        // display flex
-        // flex-wrap wrap
         &:nth-child(even)
-            // grid-template-areas "img text"
-            // flex-direction row-reverse
             .presentation__box
-
                 text-align right
-                justify-items end
+                sm()
+                    text-align left
+                .btn
+                    margin-left auto
                 &:nth-child(2)
                     order -1
         > *
             flex 1
 
     &__box
+        margin-block-start 10rem
+        display flex
+        gap 2rem
+
         :has(:not(svg))
             display grid
             place-content start
+        .presentation__text
+            display flex
+            flex-direction column
+            gap 2rem
         svg
             z-index 2
-        // gap 2rem
-        // &:nth-child(1)
-        //     grid-area text
-
-        // &:nth-child(2)
-        //     grid-area img
-    // &__btn
-    // &__img
-
 
 .projects
+    margin-block-start 10rem
     &__title
+        text-align center
+        margin-block-end 1rem
     &__subtitle
+        font-size 2rem
         text-align center
 
     &__list
@@ -196,6 +188,9 @@
         line-height 1.2
         max-width 15ch
     &__cta
+        display flex
+        gap .5rem
+        margin-inline-start 2rem
         font-size 2rem
 
 .contact
@@ -205,7 +200,7 @@
     &__infos
         display grid
         place-content center
-        padding 5rem
+        padding clamp(.5em, 10vw, 5em)
         gap 1rem
     &__detail
         text-transform uppercase
@@ -221,9 +216,33 @@
 
     &__form
         display grid
-        gap 2rem
+        gap clamp(.25em, 2vw, 2rem)
         grid-template-columns repeat(2, 0.5fr)
 
-        .form__section:has(textarea, .form__button)
+        .form__section:has(:is(textarea, .btn))
             grid-column span 2
-    
+
+        .form__section:has(.btn)
+            display flex
+            justify-content end
+
+
+// 1 media query car pas le choix vu le design
+// j'ai essayé d'en avoir 0, mais impossible :(
+@media screen and (max-width: sm) 
+    .presentation__section
+        &:nth-child(even) 
+            .presentation__box
+                text-align left
+    .quote
+        display none
+
+    .contact
+        grid-template-columns 1fr
+        &__form
+            display flex
+            flex-direction column
+
+    .presentation
+        &__section
+            grid-template-columns 1fr
